@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a, nav, ul, li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    text-decoration: none;
+    list-style: none;
+}
+body {
+    font-family: "Roboto Condenced", sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    background-image: url(img/pattern.jpg);
+    background-repeat: repeat;
+    background-position: center;
+    min-height: 100%;
+    height: 100vh;
+    background-attachment: fixed;
+}
+header {
+}
+nav {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    z-index: 99;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    position: fixed;
+}
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu li {
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+    color: #647777;
+}
+.menu li:not(:last-child)::after {
+    content: "\2022";
+    margin-left: 0.5rem;
+    font-size: 10px;
+    color: #c4c4c4;
+}
+.menu li a {
+    color: #c4c4c4;
+}
+.menu li a:hover {
+    color: #FFCC00;
+}
+
+.parallax {
+    background-image: url(img/parallax.webp);
+    height: 250px;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: -300px -30px;
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 60px;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+}
+.parallax .mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0, .3);
+    z-index: 2;
+}
+.parallax h1 {
+    z-index: 3;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #CCCCCC;
+    margin-top: 2rem;
+}
+.parallax p {
+    margin-top: -20px;
+    z-index: 3;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #999999;
+}
+.section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 100px 20px;
+}
+.works-title {
+    font-size: 1rem;
+    color: #CCCCCC;
+    margin-bottom: 10px;
+}
+.collage {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+    gap: 10px;
+}
+.image {
+    width: 100%;
+    max-width: 600px;
+    height: 350px;
+    background-color: black;
+    background-size: unset;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+.hide {
+    opacity: 0;
+}
+.hide.show {
+    opacity: 1;
+    transition: opacity 1.5s;
+}
+
+/*HOVER info */
+.image-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.image-overlay h3 {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+.image-overlay p {
+    font-size: 1rem;
+    color: #CCCCCC;
+}
+.image-container:hover .image {
+    opacity: 0.7;
+    transform: scale(1.01);
+
+}
+
+.image-container:hover .image-overlay {
+    opacity: 1;
+}
+
+/*ABOUT*/
+.section-info {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25rem;
+}
+.info {
+    max-width: 400px;
+}
+.info p {
+    margin-bottom: 2rem;
+    color: #CCCCCC;
+}
+
+.portrait {
+    max-width: 200px;
+    height: auto;
+}
+.portrait img {
+    box-shadow: 0 0 120px rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+}
+/*CONTACTS*/
+.social-icons {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    margin-bottom: 5rem;
+
+}
+.social-icons a {
+    color: #FFCC00;
+    width: 20px;
+    height: auto;
+}
+.social-icons img {
+    width: 20px;
+}
+/*Scroll to top*/
+.scroll-top-button {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 40px;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.3s;
+    background-color: transparent;
+    animation: moveIcon 0.7s linear infinite alternate;
+}
+@keyframes moveIcon {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px); /* Смещение иконки */
+    }
+}
+.scroll-top-button:hover {
+}
+
+.scroll-top-button.show {
+    display: block;
+}
+/*MEDIA*/
+@media (max-width: 860px) {
+    .image {
+        height: auto;;
+    }
+    .parallax h1 {
+        font-size: 2rem;
+        margin-top: 4rem;
+    }
+    .parallax p {
+        margin-top: 0;
+        z-index: 3;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #999999;
+    }
+    .parallax {
+        background-position: -800px -30px;
+    }
+    .section-info {
+        flex-direction: column-reverse;
+    }
+    .portrait {
+        display: flex;
+        align-items: center;
+        justify-content: center;;
+    }
+}
+@media (max-width: 500px) {
+    .portrait img {
+        max-width: 100px;
+        height: auto;
+    }
+    .info {
+        padding: 0 20px;
+    }
+}
+@media (max-width: 1350px) {
+    .collage {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .parallax {
+        background-position: -600px -30px;
+    }
+    .section-info {
+        gap: 2rem;
+    }
+}
+@media (max-width: 1620px) {
+
+    .image {
+        height: auto;
+    }
+    .section {
+        padding: 10px 20px 20px;
+    }
+}
+
+
