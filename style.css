@@ -195,14 +195,28 @@ nav {
     animation: slide 100s linear;
     white-space: nowrap;
 }
+/*in modal*/
+.show-collage {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.show-collage img {
+    max-height: 380px;
+    vertical-align: top;
+    display: inline-block;
+}
 .show-slider {
-    animation: slide 50s linear;
+    animation: slide 70s linear;
     display: inline-block;
     white-space: nowrap;
 }
-@media (max-width: 525px) {
+@media (max-width: 532px) {
     .show-slider {
-        animation: slide 20s linear;
+        display: flex;
+        flex-direction: column;
+        white-space: nowrap;
+        animation: slideY 40s linear;
     }
 }
 @keyframes slide {
@@ -211,6 +225,15 @@ nav {
     }
     to {
         transform: translateX(-100%);
+
+    }
+}
+@keyframes slideY {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100%);
 
     }
 }

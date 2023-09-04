@@ -210,6 +210,12 @@ const init = () => {
     const image4 = target.getAttribute('url4');
     const image5 = target.getAttribute('url5');
     const image6 = target.getAttribute('url6');
+    const image7 = target.getAttribute('url7');
+    const image8 = target.getAttribute('url8');
+    const image9 = target.getAttribute('url9');
+    const image10 = target.getAttribute('url10');
+    const image11 = target.getAttribute('url11');
+    const image12 = target.getAttribute('url12');
 
     const videoTitle = target.getAttribute('videoTitle');
     const directorName = target.getAttribute('directorName');
@@ -229,7 +235,7 @@ const init = () => {
       <div id="videotube-modal-loading"></div>
       <div id="videotube-modal-close">&#10006;</div>
       <div id="videotube-modal-container">
-          <div class="back-collage">
+          <div class="show-collage">
             <div class="show-slider">
               <img src="${image1}" alt="col4">
               <img src="${image2}" alt="col4">
@@ -237,21 +243,23 @@ const init = () => {
               <img src="${image4}" alt="col4">
               <img src="${image5}" alt="col4">
               <img src="${image6}" alt="col4">
-             
+              <img src="${image7}" alt="col4">
+              <img src="${image8}" alt="col4">
+              <img src="${image9}" alt="col4">
+              <img src="${image10}" alt="col4">
+              <img src="${image11}" alt="col4">
+              <img src="${image12}" alt="col4">
             </div>
           </div>
-        
-        <h1 class="video-title">${videoTitle}</h1>
-        <p class="description-video">Director | ${directorName}</p>
-        <p class="description-video">Director of Photography | ${operator}</p>
+          		<h1 class="video-title">${videoTitle}</h1>
+				<p class="description-video">Director | ${directorName}</p>
+				<p class="description-video">Director of Photography | ${operator}</p>
       </div>
-   
     `,
     );
 
-    sizeContainer(); // Настроить размер контейнера (по желанию)
+    sizeContainer();
 
-    window.addEventListener('optimizedResize', sizeVideoTubeModal);
     document.addEventListener('keyup', closeContainerEsc);
   };
 

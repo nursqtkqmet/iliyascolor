@@ -73,9 +73,11 @@
 }
 @media (max-width: 532px) {
 	.video-title {
+		display: none;
 		font-size: 18px;
 	}
 	.description-video {
+		display: none;
 		font-size: 14px;
 	}
 }

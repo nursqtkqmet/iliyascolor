@@ -53,15 +53,6 @@ scrollToTopButton.addEventListener("click", () => {
         behavior: "smooth"
     });
 });
-//Collage
-// const collageSlider = document.querySelector(".collage-slider");
-// let images = collageSlider.querySelectorAll("img");
-//
-// // Дублируем изображения для заполнения пустого пространства
-// images.forEach((image) => {
-//     const copy = image.cloneNode(true);
-//     collageSlider.appendChild(copy);
-// });
 const collageSlider = document.querySelector('.collage-slider');
 
 function copyImages() {
