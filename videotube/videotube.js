@@ -74,13 +74,13 @@ const init = () => {
   video.id = 'videotube-modal-container';
 
   const sizeBlockList = [
-    [3840, 2160],
-    [2560, 1440],
-    [1920, 1080],
-    [1280, 720],
-    [854, 420],
-    [640, 360],
-    [426, 240],
+    [3200, 1800],
+    [2133.33, 1200],
+    [1600, 900],
+    [1066.67, 600],
+    [711.67, 350],
+    [533.33, 300],
+    [355, 200],
   ];
 
   const sizeVideo = () => {
@@ -139,14 +139,33 @@ const init = () => {
     const target = e.target.closest('.tube');
     if (!target) return;
 
+    const videoTitle = target.getAttribute('videoTitle');
+    const directorName = target.getAttribute('directorName');
+    const operator = target.getAttribute('operator');
+
     const href = target.href;
-    const search = href.includes('youtube');
-    let idVideo = search
-      ? href.match(/(\?|&)v=([^&]+)/)[2]
-      : href.match(/(\.be\/)([^&]+)/)[2];
+    let idVideo;
+    let isYoutube;
 
-    if (idVideo.length === 0) return;
+    if (href.includes('vimeo')) {
+      const vimeoMatch = href.match(/\/video\/(\d+)/);
+      const videoId = href.substring(href.lastIndexOf('/') + 1);
+      if (vimeoMatch) {
+        idVideo = videoId;
+        isYoutube: false;
+      }
+    } else {
+      const search = href.includes('youtube');
+      idVideo = search
+          ? href.match(/(\?|&)v=([^&]+)/)[2]
+          : href.match(/(\.be\/)([^&]+)/)[2];
+      isYoutube = true;
+    }
 
+    if (!idVideo) return;
+    const srcVideo = isYoutube ?
+        `https://youtube.com/embed/${idVideo}?autoplay=1` :
+        `https://player.vimeo.com/video/${idVideo}`;
     e.preventDefault();
 
     animation(overlay, {
@@ -161,12 +180,15 @@ const init = () => {
 			<div id="videotube-modal-loading">Загрузка...</div>
 			<div id="videotube-modal-close">&#10006;</div>
 			<div id="videotube-modal-container">
-				<iframe src="https://youtube.com/embed/${idVideo}?autoplay=1" 
+				<iframe src="${srcVideo}" 
 					frameborder="0"
 					id="videotube-modal" 
 					allowfullscreen
 					allow="autoplay">
 				</iframe>
+				<h1 class="video-title">${videoTitle}</h1>
+				<p class="description-video">Director | ${directorName}</p>
+				<p class="description-video">Director of Photography | ${operator}</p>
 			</div>
 		`,
     );

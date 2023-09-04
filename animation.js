@@ -53,3 +53,38 @@ scrollToTopButton.addEventListener("click", () => {
         behavior: "smooth"
     });
 });
+//Collage
+// const collageSlider = document.querySelector(".collage-slider");
+// let images = collageSlider.querySelectorAll("img");
+//
+// // Дублируем изображения для заполнения пустого пространства
+// images.forEach((image) => {
+//     const copy = image.cloneNode(true);
+//     collageSlider.appendChild(copy);
+// });
+const collageSlider = document.querySelector('.collage-slider');
+
+function copyImages() {
+    const images = collageSlider.querySelectorAll('img');
+    for (let i = 0; i < images.length; i++) {
+        const clone = images[i].cloneNode(true);
+        collageSlider.appendChild(clone);
+    }
+}
+
+copyImages();
+
+const imageWidth = collageSlider.querySelector('img').clientWidth;
+let scrollDirection = 1;
+
+function scrollImages() {
+    const currentScroll = collageSlider.scrollLeft;
+    if (scrollDirection === 1 && currentScroll >= imageWidth) {
+        scrollDirection = -1;
+    } else if (scrollDirection === -1 && currentScroll <= 0) {
+        scrollDirection = 1;
+    }
+    collageSlider.scrollLeft = currentScroll + 10 * scrollDirection;
+}
+
+setInterval(scrollImages, 100);

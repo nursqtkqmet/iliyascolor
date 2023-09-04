@@ -15,7 +15,7 @@ a, nav, ul, li {
     list-style: none;
 }
 body {
-    font-family: "Roboto Condenced", sans-serif;
+    font-family: 'Oswald', sans-serif;
     line-height: 1.6;
     font-size: 16px;
     background-color: black;
@@ -26,6 +26,7 @@ body {
     min-height: 100%;
     height: 100vh;
     background-attachment: fixed;
+    user-select: none;
 }
 header {
 }
@@ -86,16 +87,16 @@ nav {
 }
 .parallax h1 {
     z-index: 3;
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 600;
     color: #CCCCCC;
     margin-top: 2rem;
 }
 .parallax p {
-    margin-top: -20px;
+    margin-top: -10px;
     z-index: 3;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 400;
     color: #999999;
 }
 .section {
@@ -166,12 +167,42 @@ nav {
 }
 .image-container:hover .image {
     opacity: 0.7;
-    transform: scale(1.01);
-
+    transition: ease 0.3s;
+    transform: scale(1.1);
 }
 
 .image-container:hover .image-overlay {
     opacity: 1;
+}
+
+/*BACKSTAGE*/
+.back-section {
+    padding: 0;
+    overflow: hidden;
+}
+.back-collage {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.back-collage img {
+    max-height: 380px;
+    vertical-align: top;
+    display: inline-block;
+}
+.collage-slider {
+    display: inline-block;
+    animation: slide 100s linear;
+    white-space: nowrap;
+}
+@keyframes slide {
+    from {
+    transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+
+    }
 }
 
 /*ABOUT*/
@@ -180,23 +211,23 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 25rem;
+    gap: 15rem;
 }
 .info {
-    max-width: 400px;
+    max-width: 500px;
 }
 .info p {
     margin-bottom: 2rem;
     color: #CCCCCC;
+    font-size: 1.1rem;
 }
 
 .portrait {
-    max-width: 200px;
+    max-width: 400px;
     height: auto;
 }
 .portrait img {
     box-shadow: 0 0 120px rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
 }
 /*CONTACTS*/
 .social-icons {
@@ -255,14 +286,10 @@ nav {
         margin-top: 4rem;
     }
     .parallax p {
-        margin-top: 0;
-        z-index: 3;
         font-size: 0.8rem;
-        font-weight: 600;
-        color: #999999;
     }
     .parallax {
-        background-position: -800px -30px;
+        background-position: -1100px -75px;
     }
     .section-info {
         flex-direction: column-reverse;
@@ -271,6 +298,9 @@ nav {
         display: flex;
         align-items: center;
         justify-content: center;;
+    }
+    .info {
+        text-align: center;
     }
 }
 @media (max-width: 500px) {
@@ -282,12 +312,14 @@ nav {
         padding: 0 20px;
     }
 }
+@media (min-width: 860px) and (max-width: 1350px) {
+    .parallax {
+        background-position: -800px -30px;
+    }
+}
 @media (max-width: 1350px) {
     .collage {
         grid-template-columns: repeat(1, 1fr);
-    }
-    .parallax {
-        background-position: -600px -30px;
     }
     .section-info {
         gap: 2rem;
