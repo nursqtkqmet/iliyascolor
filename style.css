@@ -195,6 +195,16 @@ nav {
     animation: slide 100s linear;
     white-space: nowrap;
 }
+.show-slider {
+    animation: slide 50s linear;
+    display: inline-block;
+    white-space: nowrap;
+}
+@media (max-width: 525px) {
+    .show-slider {
+        animation: slide 20s linear;
+    }
+}
 @keyframes slide {
     from {
     transform: translateX(0);

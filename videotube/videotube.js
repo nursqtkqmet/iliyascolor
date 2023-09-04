@@ -199,6 +199,64 @@ const init = () => {
     window.addEventListener('optimizedResize', sizeVideoTubeModal);
     document.addEventListener('keyup', closeContainerEsc);
   };
+
+  const openPhotoModal = e => {
+    const target = e.target.closest('.phot');
+    if (!target) return;
+
+    const image1 = target.getAttribute('url1');
+    const image2 = target.getAttribute('url2');
+    const image3 = target.getAttribute('url3');
+    const image4 = target.getAttribute('url4');
+    const image5 = target.getAttribute('url5');
+    const image6 = target.getAttribute('url6');
+
+    const videoTitle = target.getAttribute('videoTitle');
+    const directorName = target.getAttribute('directorName');
+    const operator = target.getAttribute('operator');
+
+    e.preventDefault();
+
+    animation(overlay, {
+      start: [['display', 'block']],
+      anim: [['opacity', 0, 1]],
+      count: 20,
+    });
+
+    overlay.insertAdjacentHTML(
+        'beforeend',
+        `
+      <div id="videotube-modal-loading"></div>
+      <div id="videotube-modal-close">&#10006;</div>
+      <div id="videotube-modal-container">
+          <div class="back-collage">
+            <div class="show-slider">
+              <img src="${image1}" alt="col4">
+              <img src="${image2}" alt="col4">
+              <img src="${image3}" alt="col4">
+              <img src="${image4}" alt="col4">
+              <img src="${image5}" alt="col4">
+              <img src="${image6}" alt="col4">
+             
+            </div>
+          </div>
+        
+        <h1 class="video-title">${videoTitle}</h1>
+        <p class="description-video">Director | ${directorName}</p>
+        <p class="description-video">Director of Photography | ${operator}</p>
+      </div>
+   
+    `,
+    );
+
+    sizeContainer(); // Настроить размер контейнера (по желанию)
+
+    window.addEventListener('optimizedResize', sizeVideoTubeModal);
+    document.addEventListener('keyup', closeContainerEsc);
+  };
+
+  document.addEventListener('click', openPhotoModal);
+
   overlay.addEventListener('click', closeVideoTubeModal);
   document.addEventListener('click', openVideoTubeModal);
 };
