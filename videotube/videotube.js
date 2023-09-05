@@ -251,9 +251,9 @@ const init = () => {
               <img src="${image12}" alt="col4">
             </div>
           </div>
-          		<h1 class="video-title">${videoTitle}</h1>
-				<p class="description-video">Director | ${directorName}</p>
-				<p class="description-video">Director of Photography | ${operator}</p>
+          		<h1 class="photo-title">${videoTitle}</h1>
+				<p class="description-photo">Director | ${directorName}</p>
+				<p class="description-photo">Director of Photography | ${operator}</p>
       </div>
     `,
     );

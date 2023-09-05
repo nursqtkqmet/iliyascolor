@@ -71,12 +71,23 @@
 	font-size: 20px;
 	color: #CCCCCC;
 }
+.photo-title {
+	padding-top: 15px;
+	text-transform: uppercase;
+	font-family: 'Oswald', sans-serif;
+	font-size: 24px;
+}
+.description-photo {
+	font-family: 'Oswald', sans-serif;
+	font-size: 20px;
+	color: #CCCCCC;
+}
 @media (max-width: 532px) {
-	.video-title {
+	.photo-title {
 		display: none;
 		font-size: 18px;
 	}
-	.description-video {
+	.description-photo {
 		display: none;
 		font-size: 14px;
 	}

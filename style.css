@@ -338,7 +338,7 @@ nav {
 }
 @media (max-width: 500px) {
     .portrait img {
-        max-width: 100px;
+        max-width: 190px;
         height: auto;
     }
     .info {
