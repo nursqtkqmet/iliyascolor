@@ -177,9 +177,6 @@ const init = () => {
     overlay.insertAdjacentHTML(
       'beforeend',
       `
-			<div id="videotube-modal-loading">
-			<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-			</div>
 			<div id="videotube-modal-close">&#10006;</div>
 			<div id="videotube-modal-container">
 				<iframe src="${srcVideo}" 
@@ -188,6 +185,9 @@ const init = () => {
 					allowfullscreen
 					allow="autoplay">
 				</iframe>
+				<div id="videotube-modal-loading">
+                  <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                </div>
 				<h1 class="video-title">${videoTitle}</h1>
 				<p class="description-video">Director | ${directorName}</p>
 				<p class="description-video">Director of Photography | ${operator}</p>

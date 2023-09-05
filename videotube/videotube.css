@@ -11,8 +11,6 @@
 		position: fixed;
 		background: #000;
 		text-align: center;
-		align-items: center;
-	justify-content: center;
 }
 
 #videotube-modal-container {
@@ -31,16 +29,16 @@
 #videotube-modal {
 		text-align: center;
 		box-shadow: 0 0 40px #333;
+	z-index: 99;
 }
 
 #videotube-modal-loading {
-		z-index: 997;
+		z-index: 1;
 		font-size: 1.5em;
-		width: 5%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		position: relative;
+		width: 100%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
 }
 
 #videotube-modal-close {
@@ -105,9 +103,17 @@
 	display: inline-block;
 	position: relative;
 	width: 80px;
-	height: 80px;
-	right: 0;
-	bottom: 50px;
+	margin-top: -340px;
+}
+@media (max-width: 532px ) {
+	.lds-ellipsis {
+		margin-top: -150px;
+	}
+}
+@media (min-width: 533px) and (max-width: 1070px ) {
+	.lds-ellipsis {
+		margin-top: -200px;
+	}
 }
 .lds-ellipsis div {
 	position: absolute;
