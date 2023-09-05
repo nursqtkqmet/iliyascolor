@@ -192,7 +192,7 @@ nav {
 }
 .collage-slider {
     display: inline-block;
-    animation: slide 100s linear;
+    animation: slide 100s linear infinite;
     white-space: nowrap;
 }
 /*in modal*/

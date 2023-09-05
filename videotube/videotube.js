@@ -169,7 +169,7 @@ const init = () => {
     e.preventDefault();
 
     animation(overlay, {
-      start: [['display', 'block']],
+      start: [['display', 'flex']],
       anim: [['opacity', 0, 1]],
       count: 20,
     });
@@ -177,7 +177,9 @@ const init = () => {
     overlay.insertAdjacentHTML(
       'beforeend',
       `
-			<div id="videotube-modal-loading">Загрузка...</div>
+			<div id="videotube-modal-loading">
+			<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+			</div>
 			<div id="videotube-modal-close">&#10006;</div>
 			<div id="videotube-modal-container">
 				<iframe src="${srcVideo}" 
