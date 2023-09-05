@@ -83,6 +83,12 @@
 	color: #CCCCCC;
 }
 @media (max-width: 532px) {
+	.video-title {
+		font-size: 18px;
+	}
+	.description-video {
+		font-size: 14px;
+	}
 	.photo-title {
 		display: none;
 		font-size: 18px;
