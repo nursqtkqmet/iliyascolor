@@ -202,7 +202,7 @@ nav {
     overflow: hidden;
 }
 .show-collage img {
-    max-height: 280px;
+    max-height: 100%;
     vertical-align: top;
     display: inline-block;
 }
@@ -217,6 +217,10 @@ nav {
         flex-direction: column;
         white-space: nowrap;
         animation: slideY 40s linear;
+    }
+    .show-collage img {
+        max-height: 100%;
+        max-width: 100%;
     }
 }
 @keyframes slide {
