@@ -217,6 +217,9 @@ nav {
         flex-direction: column;
         white-space: nowrap;
         animation: slideY 40s linear;
+        gap: 20px;
+        max-width: 90%;
+        margin: 0 auto;
     }
     .show-collage img {
         max-height: 100%;
