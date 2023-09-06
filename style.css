@@ -202,7 +202,7 @@ nav {
     overflow: hidden;
 }
 .show-collage img {
-    max-height: 380px;
+    max-height: 280px;
     vertical-align: top;
     display: inline-block;
 }
